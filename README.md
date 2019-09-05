@@ -1,8 +1,7 @@
 # Remote-File-Upload
 Upload FIle to server with percentage progress
 
-https://raw.githubusercontent.com/Pedroxam/Remote-File-Upload/master/shot.jpg
-
+<img src="https://raw.githubusercontent.com/Pedroxam/Remote-File-Upload/master/shot.jpg">
 
 This is easy way to remote upload your file to target server.
 
