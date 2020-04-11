@@ -139,14 +139,15 @@ if(!filter_var($url, FILTER_VALIDATE_URL)) {
 	die();
 }
 
-$check_ext = getExtention($url,-3);
-$allowed = ['mkv','mp4','3gp','avi','m4v','mp3','flv','ts']; // Alowed file types
+
+//$check_ext = getExtention($url,-3);
+//$allowed = ['mkv','mp4','3gp','avi','m4v','mp3','flv','ts']; // Alowed file types
 
 /*
  * Download File
 */
-if(in_array($check_ext,$allowed)){
+//if(in_array($check_ext,$allowed)){
 	exit(downloadFile($url,basename($name)));
-}
+//}
 
 ?>
