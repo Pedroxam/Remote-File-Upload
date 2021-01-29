@@ -108,8 +108,9 @@ function downloadFile($url,$name)
 	
 	$put = file_put_contents(str_replace('=','',base64_encode(substr($name,0,5))).'.txt',remote_filesize($url));
 	
-	if(!$put){
-		$status = false;
+	if(!$put)
+	{
+		//$status = false;
 		return;
 	}
 		
