@@ -37,11 +37,12 @@ define('SERVER_API','http://example.com/remote.php');
 	
 <script>
 
+	// Global shit Progress var
 	var doProgress;
 		
 	function getProgress(){
 		$.ajax({
-			url: '<?= SERVER_API; ?>?progress=1',
+			url: '<?php echo SERVER_API; ?>?progress=1',
 			dataType: 'json',
 			type: 'POST',
 			data: {
@@ -51,9 +52,10 @@ define('SERVER_API','http://example.com/remote.php');
 				$('#result .progress').html(data.progress + ' %');
 				$('#result .uploaded').html(data.uploaded);
 				$('#result .filesize').html(data.size);
+				
 				if(data.progress >= 100){
-					clearInterval(doProgress);
-					$('#result').html('File Succesfully Uploaded!');
+				    clearInterval(doProgress); // Stop Fucking Progress Var
+				    $('#result').html('File Succesfully Uploaded!');
 				}
 			},
 		})
@@ -61,7 +63,9 @@ define('SERVER_API','http://example.com/remote.php');
 
 	$(document).ready(function(){
 		$('#remote').submit(function(e){
-		  e.preventDefault();
+			
+		  	e.preventDefault();
+			
 			$.ajax({
 				url: '<?php echo SERVER_API; ?>',
 				dataType: 'json',
