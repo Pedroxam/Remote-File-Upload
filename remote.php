@@ -71,11 +71,6 @@ function formatSizeUnits($bytes)
         return $bytes;
 }
 
-function getExtention($name)
-{
-	return substr(basename($name),-3);
-}
-
 /*
  * Get the uploaded progress percentage
 */
@@ -141,7 +136,7 @@ if(!filter_var($url, FILTER_VALIDATE_URL)) {
 }
 
 
-//$check_ext = getExtention($url,-3);
+//$check_ext = substr($name,-3);
 //$allowed = ['mkv','mp4','3gp','avi','m4v','mp3','flv','ts']; // Alowed file types
 
 /*
