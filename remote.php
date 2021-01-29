@@ -9,7 +9,8 @@ error_reporting(0);
 set_time_limit(0);
 
 /*
- * Large download file
+ * Large download file Using Curl
+ * if your server don't have Curl, change this function to eg: file_put_contents
 */
 function largeDownload($url,$path){
     $fp = fopen($path, 'w');
@@ -18,11 +19,12 @@ function largeDownload($url,$path){
     $data = curl_exec($ch);
     curl_close($ch);
     fclose($fp);
-	return $data;
+    return $data;
 }
 
 /*
  * Get the remote file size
+ * In rare cases, it does not work well, but its good.
 */
 function remote_filesize($url) {
     static $regex = '/^Content-Length: *+\K\d++$/im';
@@ -35,11 +37,12 @@ function remote_filesize($url) {
     ) {
         return (int)$matches[0];
     }
-  	  return strlen(stream_get_contents($fp));
+	return strlen(stream_get_contents($fp));
 }
 
 /*
  * Readable file size
+ * Very Dirty function for make Readable filesize, you can change
 */
 function formatSizeUnits($bytes)
 {
@@ -108,7 +111,8 @@ function downloadFile($url,$name)
 		//$status = false;
 		return;
 	}
-		
+
+	//Download File Can be Start from here
 	largeDownload($url, $name);
 	
 	return json_encode(
@@ -123,7 +127,7 @@ function downloadFile($url,$name)
  * Get the file progress
 */
 if(isset($_REQUEST['progress']) && !empty($_REQUEST['progress'])){
-	exit(getProgress(trim($_REQUEST['name'])));
+  exit(getProgress(trim($_REQUEST['name'])));
 }
 
 $url  = trim($_REQUEST['url']); // File url
