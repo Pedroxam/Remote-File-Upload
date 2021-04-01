@@ -37,7 +37,7 @@ define('SERVER_API','http://example.com/remote.php');
 	
 <script>
 
-	// Global shit Progress var
+	// Global  Progress var
 	var doProgress;
 		
 	function getProgress(){
@@ -54,7 +54,7 @@ define('SERVER_API','http://example.com/remote.php');
 				$('#result .filesize').html(data.size);
 				
 				if(data.progress >= 100){
-				    clearInterval(doProgress); // Stop Fucking Progress Var
+				    clearInterval(doProgress); // Stop  Progress Var
 				    $('#result').html('File Succesfully Uploaded!');
 				}
 			},
