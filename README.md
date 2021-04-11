@@ -10,3 +10,5 @@ This is easy way to remote upload your file to target server.
 2 - Second, upload remote.php on your target server.
 
 3 - Run Script and enjoy!
+
+THANKS GOD
