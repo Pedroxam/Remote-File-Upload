@@ -46,10 +46,10 @@ table {
   font-family: 'FontAwesome', sans-serif;
 }
 
-
 body {
-	background-image:url('background.jpg');
-	background-repeat:no-repeat;
+	background-image: url('background.jpg');
+	background-size: 100% !important;
+	background-repeat: no-repeat;
 	color: #000;
 	font-family: "Varela Round", Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -66,14 +66,14 @@ input {
 }
 
 #upload {
-	margin: 150px 100px 150px 453px;
+	margin: 50px auto;
 	width: 500px;
-        opacity:0.7;
-        transition:all 0.7s ease;
+	opacity:0.89;
+	transition: all 0.7s ease;
+	padding: 5px;
 }
 #upload:hover {
-        opacity:1;
-        box-shadow:-0.5px -0.5px 5px 2px #7e97ff;
+	opacity: 1;
 }
 
 #upload h2 {
@@ -114,27 +114,19 @@ input {
 	border-radius: 1px;
 }
 
-#upload fieldset input[type="text"], #upload fieldset input[type="password"] {
+#upload fieldset input[type="text"], #upload fieldset input[type="url"] {
 	background-color: #eee;
 	color: #777;
-	padding: 4px 10px;
+	padding: 8px 10px;
 	width: 428px;
 }
 
-#upload fieldset input[type="submit"] {
-	background-color: #33cc77;
-	color: #fff;
-	display: block;
-	margin: 0 auto;
-	padding: 4px 0;
-	width: 300px;
-	transition:all 0.4s ease;
-	cursor:hand;
+#upload fieldset input:focus {
+	outline: none;
 }
 
 #upload fieldset input[type="submit"]:hover {
 	background-color: #28ad63;
-
 }
 
 #result {
@@ -143,16 +135,29 @@ input {
 	background-color: #fefefe;
 }
 
+.Button {
+	cursor: pointer;
+	background-color: #33cc77;
+	color: #fff;
+	display: block;
+	margin: 0 auto;
+	padding: 9px 0;
+	width: 300px;
+	transition:all 0.4s ease;
+	cursor:hand;
+	border-radius: 4px !important;
+}
+
 .Button:hover{
-	cursor:pointer;
+	cursor: pointer;
 }
 
 .cover{
-        width:0;
-        height:40px;
-        background-color:white;
-        transition:all 0.3s ease;
-        float:left;
+	width:0;
+	height:40px;
+	background-color:white;
+	transition:all 0.3s ease;
+	float:left;
 }
 
 .cover:hover{
