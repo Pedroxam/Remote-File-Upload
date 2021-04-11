@@ -69,6 +69,9 @@ define('SERVER_API','http://example.com/remote.php');
 			
 		  	e.preventDefault();
 			
+			if($('#url').val() === '') return;
+			if($('#name').val() === '') return;
+			
 			$.ajax({
 				url: '<?php echo SERVER_API; ?>',
 				dataType: 'json',
