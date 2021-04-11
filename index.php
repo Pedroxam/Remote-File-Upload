@@ -21,17 +21,17 @@ define('SERVER_API','http://example.com/remote.php');
 		<form id="remote">
 			<fieldset>
 				<p><span class="fontawesome-link"></span><label for="link">Link:</label></p>
-				<p><input type="text" id="url" name="url" placeholder="http://" required autofocus></p>
-				<p><input type="text" id="name" name="name" placeholder="filename" required autofocus></p>
+				<p><input type="url" id="url" name="url" placeholder="http://" required autocomplete="off"></p>
+				<p><input type="text" id="name" name="name" placeholder="filename" required autocomplete="off"></p>
 				<p><input type="submit" value="Upload" name="send" class="Button"></p>
 			</fieldset>
 		</form>
 		<div id="result">
-			Progress: <span class="progress"></span>
+			Progress: <span class="progress">--</span>
 			<br/>
-			Uploaded: <span class="uploaded"></span>
+			Uploaded: <span class="uploaded">--</span>
 			<br/>
-			Filesize: <span class="filesize"></span>
+			Filesize: <span class="filesize">--</span>
 		</div>
 	</div>
 	
