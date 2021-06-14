@@ -11,4 +11,4 @@ This is easy way to remote upload your file to target server.
 
 3 - Run Script and enjoy!
 
-THANKS GOD
+Thanks
