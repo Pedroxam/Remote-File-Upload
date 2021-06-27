@@ -79,7 +79,7 @@ function formatSizeUnits($bytes)
 */
 function getProgress($name)
 {
-	$log  = str_replace('=','',base64_encode(substr($name,0,5)));
+	$log  = md5($name);
 	
 	$total_size = file_get_contents($log . '.txt');
 	
@@ -104,7 +104,7 @@ function downloadFile($url,$name)
 	
 	$status = true;
 	
-	$put = file_put_contents(str_replace('=','',base64_encode(substr($name,0,5))).'.txt',remote_filesize($url));
+	$put = file_put_contents(md5($name) . '.txt', remote_filesize($url));
 	
 	if(!$put)
 	{
