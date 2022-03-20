@@ -82,7 +82,7 @@ define('SERVER_API','http://example.com/remote.php');
 					$('.Button').attr('disabled',true);
 					doProgress = setInterval(getProgress, 2500);
 				},
-				success:function(){
+				success:function(data){
 					$('.Button').attr('disabled',false);
 					
 					if(data.status){
