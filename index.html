@@ -1,11 +1,12 @@
-<?php
+<script>
 /*
  * By Pedram [ Pedroxam ]
 */
 
 // Replace your server url and remote.php file
-define('SERVER_API','http://example.com/remote.php');
-?>
+
+const SERVER_API = "https://example.com/remote.php"
+</script>
 
 <!doctype html>
 <html lang="en-US">
@@ -45,7 +46,7 @@ define('SERVER_API','http://example.com/remote.php');
 		
 	function getProgress(){
 		$.ajax({
-			url: '<?php echo SERVER_API; ?>?progress=1',
+			url: SERVER_API + '?progress=1',
 			dataType: 'json',
 			type: 'POST',
 			data: {
@@ -73,7 +74,7 @@ define('SERVER_API','http://example.com/remote.php');
 			if($('#name').val() === '') return;
 			
 			$.ajax({
-				url: '<?php echo SERVER_API; ?>',
+				url: SERVER_API,
 				dataType: 'json',
 				type: 'POST',
 				data: $(this).serialize(),
