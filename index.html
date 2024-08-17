@@ -41,6 +41,12 @@ const SERVER_API = "https://example.com/remote.php"
 	
 <script>
 
+	let check = getDownload();
+	
+	if(check !== "" && check !== null){
+		doProgress = setInterval(getProgress, 2500);
+	}
+
 	// Global  Progress var
 	var doProgress;
 		
@@ -50,7 +56,7 @@ const SERVER_API = "https://example.com/remote.php"
 			dataType: 'json',
 			type: 'POST',
 			data: {
-				name: $('#name').val()
+				name: (check !== "" && check !==  null) ? check : $('#name').val()
 			},
 			success:function(data){
 				$('#result .progress').html(data.progress + ' %');
@@ -58,8 +64,9 @@ const SERVER_API = "https://example.com/remote.php"
 				$('#result .filesize').html(data.size);
 				
 				if(data.progress >= 100){
-				    clearInterval(doProgress); // Stop  Progress Var
-				    $('#result').html('File Succesfully Uploaded!');
+				    clearInterval(doProgress); // Stop Progress Var
+					$('#result').html('File Succesfully Uploaded.');
+					delDownload();
 				}
 			},
 		})
@@ -81,15 +88,13 @@ const SERVER_API = "https://example.com/remote.php"
 				beforeSend:function()
 				{
 					$('.Button').attr('disabled',true);
+					saveDownload($('#name').val());
 					doProgress = setInterval(getProgress, 2500);
 				},
 				success:function(data){
 					$('.Button').attr('disabled',false);
 					
-					if(data.status){
-						$('#result').html('File Succesfully Uploaded.');
-					}
-					else {
+					if(!data.status){
 						$('#result').html('Sorry, Please Check your server config.');
 					}
 				},
@@ -97,6 +102,19 @@ const SERVER_API = "https://example.com/remote.php"
 		});
 	});
 	
+	
+	function saveDownload(value) {
+		window.localStorage.setItem('download', value);
+	}
+		
+	function getDownload() {
+		return window.localStorage.getItem('download');
+	}
+		
+	function delDownload() {
+		window.localStorage.removeItem('download');
+	}
+
 </script>
 
 </body>
