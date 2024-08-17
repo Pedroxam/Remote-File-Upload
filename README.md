@@ -11,4 +11,9 @@ This is easy way to remote upload your file to target server.
 
 3 - Run Script and enjoy!
 
+
+Updates:
+
+- See file progress even after refresh page
+
 Thanks
