@@ -41,14 +41,14 @@ const SERVER_API = "https://example.com/remote.php"
 	
 <script>
 
+	// Global  Progress var
+	var doProgress;
+
 	let check = getDownload();
 	
 	if(check !== "" && check !== null){
 		doProgress = setInterval(getProgress, 2500);
 	}
-
-	// Global  Progress var
-	var doProgress;
 		
 	function getProgress(){
 		$.ajax({
